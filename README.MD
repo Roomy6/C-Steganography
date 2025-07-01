@@ -9,9 +9,8 @@ For example the number 12 in binary would be: `00001100`
 Changing the LSB of 12 would turn it to 13: `00001101`
 
 ```
-00001100
-	   ^
-	   Least significant bit
+00001100 <-
+Least significant bit
 ```
 
 Changing the LSB slightly alters the color value — for example, from 12 (`00001100`) to 13 (`00001101`) — but this tiny change is visually undetectable to the human eye without utilizing special software. This is what makes steganography possible.
