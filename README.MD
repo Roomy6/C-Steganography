@@ -54,7 +54,12 @@ Example `binary decoding` usage:
 ./steg decode encodedImg.png binaryOut.exe file
 ```
 
+## TODO
+- [ ] Binary encoding placement randomization
+- [ ] Text decoding outputs to file
+- [ ] Additional data encryption
 ---
+
 ## Resources Used:
 https://www.youtube.com/watch?v=kkmpP_7mY_I
 
