@@ -57,5 +57,7 @@ Example `binary decoding` usage:
 ---
 ## Resources Used:
 https://www.youtube.com/watch?v=kkmpP_7mY_I
+
 https://solarianprogrammer.com/2019/06/10/c-programming-reading-writing-images-stb_image-libraries/
+
 https://github.com/nothings/stb
