@@ -19,8 +19,9 @@ Changing the LSB slightly alters the color value — for example, from 12 (`0000
 Make sure you have `gcc` or other C/C++ compiling programs installed. `gcc` can be installled on `Ubuntu` Linux by running: `sudo apt install gcc` 
 
 Clone the GitHub repo project.
-`git clone` 
-Compile the project to a binary file called `steg`
+`git clone`
+
+Compile the project to a binary file called `steg` 
 `gcc main.c image.c stego.c -o steg -lm` 
 
 ## Usage
