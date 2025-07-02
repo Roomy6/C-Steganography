@@ -1,10 +1,11 @@
-#include "stego.h"
-#include "utils.h"
-#include <string.h>
 #include <stdio.h>
+#include <ctype.h>
+#include <string.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include <ctype.h>
+
+#include "stego.h"
+#include "utils.h"
 
 /* Convert the int to bit values */
 static void int_to_bits(uint32_t value, uint8_t *bits, size_t bit_len) {
@@ -24,7 +25,7 @@ static uint32_t bits_to_int(const uint8_t *bits, size_t bit_len) {
 }
 
 /* Encoding fuction */
-Image encode(const Image *img, const char *payload, bool is_file) {
+Image encode(const Image *img, const char *payload, bool is_file, int amplify_pixel_brightness) {
     size_t payload_bytes = 0;
     uint8_t *data = NULL;
 
@@ -56,14 +57,13 @@ Image encode(const Image *img, const char *payload, bool is_file) {
     memcpy(result.data, img->data, img->size);
 
     uint8_t *flat = result.data;
-    int dbg_amplify_pixel_brightness = 0;                 /* Change this value to make encoded pixels more visible (e.g 100) */
 
     /* Write a 32-bit lenght header */
     uint8_t length_bits[32];
     int_to_bits((uint32_t)payload_bytes, length_bits, 32);
     for (size_t i = 0; i < 32; ++i) {
         flat[i] = (flat[i] & ~1) | length_bits[i];
-        if (length_bits[i] == 1 && flat[i] < 240) flat[i] += dbg_amplify_pixel_brightness;
+        if (length_bits[i] == 1 && flat[i] < 240) flat[i] += amplify_pixel_brightness;
 
     }
 
@@ -73,7 +73,7 @@ Image encode(const Image *img, const char *payload, bool is_file) {
         for (int b = 7; b >= 0; --b) {
             uint8_t bit = (data[i] >> b) & 1;
             flat[bit_index] = (flat[bit_index] & ~1) | bit;
-            if (bit == 1 && flat[bit_index] < 240) flat[bit_index] += dbg_amplify_pixel_brightness;
+            if (bit == 1 && flat[bit_index] < 240) flat[bit_index] += amplify_pixel_brightness;
             bit_index++;
         }
     }

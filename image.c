@@ -1,6 +1,7 @@
+#include <math.h>
+
 #include "image.h"
 #include "utils.h"
-#include <math.h>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image/stb_image.h"
