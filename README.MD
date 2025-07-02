@@ -19,7 +19,7 @@ Make sure you have `gcc` or other C/C++ compiling programs installed. `gcc` can 
 
 Once line clone & compile.
 ```sh
-git clone https://github.com/Roomy6/C-Steganography.git && cd C-Steganography/ && gcc main.c image.c stego.c -o steg -lm
+git clone https://github.com/Roomy6/C-Steganography.git && cd C-Steganography/ && ./build.sh
 ```
 
 ## Usage
