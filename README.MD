@@ -1,4 +1,6 @@
+# C Steganography encoder and decoder project
 A super simple steganography program made in the C programming language.
+
 ## What is setganography?
 Steganography is a way to encode or hide messages/files (information) within another message or media in a concealed manner.
 
