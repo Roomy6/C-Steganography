@@ -54,7 +54,7 @@ Example `binary decoding` usage:
 
 ## TODO
 - [ ] Binary encoding placement randomization (Based on hash?)
-- [ ] Text decoding outputs to file
+- [x] Text decoding outputs to file
 - [ ] Additional data encryption
 
 ---
