@@ -56,12 +56,15 @@ Image encode(const Image *img, const char *payload, bool is_file) {
     memcpy(result.data, img->data, img->size);
 
     uint8_t *flat = result.data;
+    int dbg_amplify_pixel_brightness = 0;                 /* Change this value to make encoded pixels more visible (e.g 100) */
 
     /* Write a 32-bit lenght header */
     uint8_t length_bits[32];
     int_to_bits((uint32_t)payload_bytes, length_bits, 32);
     for (size_t i = 0; i < 32; ++i) {
         flat[i] = (flat[i] & ~1) | length_bits[i];
+        if (length_bits[i] == 1 && flat[i] < 240) flat[i] += dbg_amplify_pixel_brightness;
+
     }
 
     /* Write the payload bits */
@@ -69,7 +72,9 @@ Image encode(const Image *img, const char *payload, bool is_file) {
     for (size_t i = 0; i < payload_bytes; ++i) {
         for (int b = 7; b >= 0; --b) {
             uint8_t bit = (data[i] >> b) & 1;
-            flat[bit_index++] = (flat[bit_index] & ~1) | bit;
+            flat[bit_index] = (flat[bit_index] & ~1) | bit;
+            if (bit == 1 && flat[bit_index] < 240) flat[bit_index] += dbg_amplify_pixel_brightness;
+            bit_index++;
         }
     }
 
