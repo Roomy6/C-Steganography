@@ -42,10 +42,18 @@ int main(int argc, char *argv[]) {
         ON_ERROR_EXIT(img.data == NULL, "Failed to load encoded image");
 
         if (as_text) {
-            char *decoded = decode_text(&img);
-            printf("Decoded message:\n%s\n", decoded);
-            free(decoded);
+            /* Export the encoded text data to a file */
+            char *data = decode_text(&img);
+            //size_t out_size = sizeof(data); /* Will only output 8 bits(bytes?) of text */
+            //printf("Output size: %ld\n", out_size);
+            size_t out_size = strlen(data); /* Instead get the string length (could of guessed that lol) */
+            printf("Decoded message:\n%s\n", data);
+            FILE *fp = fopen(output_path, "wb");
+            fwrite(data, 1, out_size, fp);
+            fclose(fp);
+            free(data);
         } else {
+            /* Export the encoded binary data to a binary file */
             size_t out_size;
             uint8_t *data = decode_binary(&img, &out_size);
             FILE *fp = fopen(output_path, "wb");

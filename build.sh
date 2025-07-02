@@ -1,0 +1,1 @@
+gcc main.c image.c stego.c -o steg -lm
