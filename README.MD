@@ -56,6 +56,8 @@ Example `binary decoding` usage:
 ## TODO
 - [ ] Binary encoding placement randomization (Based on hash?)
 - [x] Text decoding outputs to file
+- [x] Change data pixel brightness
+- [x] Additional arguments
 - [ ] Additional data encryption
 - [ ] Encode file name
 - [ ] Option to to encode both text and binary files
