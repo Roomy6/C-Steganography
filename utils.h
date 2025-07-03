@@ -7,7 +7,7 @@
 typedef struct {
     char hash_algo[16];
     char hashkey_algo[16];
-    char hashkey_value[64];
+    char hashkey_value[65];
     int amp;
 } ArgumentOptions;
 
@@ -27,4 +27,28 @@ static inline bool str_ends_in(const char *str, const char *ends) {
     size_t ends_len = strlen(ends);
     char *pos = strstr(str, ends);
     return (pos != NULL) && (pos + ends_len == str + str_len);
+}
+
+static int hexchar_to_int(char c) {
+    if ('0' <= c && c <= '9') return c - '0';
+    if ('a' <= c && c <= 'f') return c - 'a' + 10;
+    if ('A' <= c && c <= 'F') return c - 'A' + 10;
+    return -1;
+}
+
+static int hexstr_to_bytes(const char *hexstr, unsigned char *bytes, size_t bytes_len) {
+    size_t hex_len = strlen(hexstr);
+    /* Ignore whitespace */
+    while (hex_len > 0 && (hexstr[hex_len - 1] == '\n' || hexstr[hex_len - 1] == '\r' || hexstr[hex_len - 1] == ' ')) {
+        hex_len--;
+    }
+    if (hex_len != bytes_len * 2) return -1;
+
+    for (size_t i = 0; i < bytes_len; i++) {
+        int hi = hexchar_to_int(hexstr[2 * i]);
+        int lo = hexchar_to_int(hexstr[2 * i + 1]);
+        if (hi < 0 || lo < 0) return -1;
+        bytes[i] = (hi << 4) | lo;
+    }
+    return 0;
 }

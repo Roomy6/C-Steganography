@@ -54,7 +54,7 @@ Example `binary decoding` usage:
 ```
 
 ## TODO
-- [ ] Binary encoding placement randomization (Based on hash?)
+- [X] Binary encoding placement randomization (Based on hash?)
 - [x] Text decoding outputs to file
 - [x] Change data pixel brightness
 - [x] Additional arguments

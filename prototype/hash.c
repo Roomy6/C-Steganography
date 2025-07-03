@@ -1,3 +1,6 @@
+/*
+https://stackoverflow.com/questions/60984946/how-to-hash-the-contents-of-a-file-in-c
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

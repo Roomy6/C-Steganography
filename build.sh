@@ -1,1 +1,1 @@
-gcc main.c image.c stego.c -o steg -lm
+gcc main.c image.c stego.c -o steg -lm -lcrypto
