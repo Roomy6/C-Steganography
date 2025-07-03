@@ -16,6 +16,8 @@ Least significant bit
 Changing the LSB slightly alters the color value — but this tiny change is visually undetectable to the human eye without utilizing special software. This is what makes steganography possible. For a better in-depth explination pelase watch Chris Tralie's video on a Python based steganography encoder here: https://www.youtube.com/watch?v=kkmpP_7mY_I
 
 ## Compiling
+
+### Linux
 Make sure you have `gcc` or other C/C++ compiling programs installed. `gcc` can be installled on `Ubuntu` Linux by running: `sudo apt install gcc` 
 
 Once line clone & compile.
