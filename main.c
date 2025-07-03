@@ -32,6 +32,7 @@ int main(int argc, char *argv[]) {
         i = 5;
     } else {
         fprintf(stderr, "Unknown operation: %s\n", argv[1]);
+        printf("Use argument --help for more infomation.");
         exit(1);
     }
 

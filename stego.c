@@ -129,7 +129,7 @@ Image encode(const Image *img, const char *payload, bool is_file, const char *ha
     size_t usable_pixels = img->size - 32;
     size_t total_payload_bits = payload_bytes * 8;
 
-    ON_ERROR_EXIT(total_payload_bits > usable_pixels, "Payload too large for image (random bit mode)");
+    ON_ERROR_EXIT(total_payload_bits > usable_pixels, "Payload too large for image");
 
     /* Determine if hashing is used */
     bool use_random = (hash_algo != NULL && strlen(hash_algo) > 0);
