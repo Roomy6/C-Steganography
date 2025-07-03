@@ -20,7 +20,7 @@ Changing the LSB slightly alters the color value — but this tiny change is vis
 ### Linux
 Make sure you have `gcc` or other C/C++ compiling programs installed. `gcc` can be installled on `Ubuntu` Linux by running: `sudo apt install gcc` 
 
-Once line clone & compile.
+One line clone & compile.
 ```sh
 git clone https://github.com/Roomy6/C-Steganography.git && cd C-Steganography/ && ./build.sh
 ```
